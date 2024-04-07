@@ -1,6 +1,0 @@
---c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Start -I .\Library -I .\System -I .\Hardware -I .\User
--I.\RTE\_Target_1
--IE:\Keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
--IE:\Keil5\ARM\CMSIS\Include
--D__UVISION_VERSION="524" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
--o .\objects\pwm.o --omf_browse .\objects\pwm.crf --depend .\objects\pwm.d "Hardware\PWM.c"
