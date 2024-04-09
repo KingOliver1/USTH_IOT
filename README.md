@@ -5,3 +5,6 @@
 ## 3.Software存放软件方面的工程代码，如自己写的一些Java程序、web网页等
 ## 4.AI存放一些人工智能方面的工程代码，如自己训练好的模型，或者平时练手用的代码等
 ## 5.Tools存放一些好用的工具，如VOFA+波形调试软件、typro笔记工具、xmind思维导图等，便于以后的可以直接从这里寻找想要的工具。
+
+好用的仓库：
+https://github.com/KingOliver1/fuckZHS
