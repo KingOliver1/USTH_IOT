@@ -1,5 +1,8 @@
 #include "stm32f10x.h"                  // Device header
 #include "My_PWM.h"
+int PWM_MAX;
+int PWM_MIN;
+
 void motor_init(void)
 {
 	//初始化外设时钟
@@ -118,16 +121,16 @@ void Motor_SetBack_RightSpeed(int16_t Speed)
 //限幅函数
 void Limit(int *motorAL,int *motorAR,int* motorBL,int* motorBR)
 {
-	if(*motorAL > 7200) *motorAL=7200;
-	if(*motorAL <-7200) *motorAL=-7200;
+	if(*motorAL > PWM_MAX) *motorAL=PWM_MAX;
+	if(*motorAL < PWM_MIN) *motorAL=PWM_MIN;
 	
-	if(*motorAR > 7200) *motorAR=7200;
-	if(*motorAR <-7200) *motorAR=-7200;
+	if(*motorAR > PWM_MAX) *motorAR=PWM_MAX;
+	if(*motorAR < PWM_MIN) *motorAR=PWM_MIN;
 	
-	if(*motorBL > 7200) *motorBL=7200;
-	if(*motorBL <-7200) *motorBL=-7200;
+	if(*motorBL > PWM_MAX) *motorBL=PWM_MAX;
+	if(*motorBL < PWM_MIN) *motorBL=PWM_MIN;
 	
-	if(*motorBR > 7200) *motorBR=7200;
-	if(*motorBR <-7200) *motorBR=-7200;
+	if(*motorBR > PWM_MAX) *motorBR=PWM_MAX;
+	if(*motorBR < PWM_MIN) *motorBR=PWM_MIN;
 	
 }

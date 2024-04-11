@@ -53,6 +53,7 @@ void Encoder_init(void)
 	TIM_ICInit(TIM5, &TIM_ICInitStruct);
 	TIM_ICInit(TIM8, &TIM_ICInitStruct);
 	
+	//调用编码器接口
 	TIM_EncoderInterfaceConfig(TIM3,TIM_EncoderMode_TI12,TIM_ICPolarity_Rising,TIM_ICPolarity_Rising);
 	TIM_EncoderInterfaceConfig(TIM4,TIM_EncoderMode_TI12,TIM_ICPolarity_Rising,TIM_ICPolarity_Rising);
 	TIM_EncoderInterfaceConfig(TIM5,TIM_EncoderMode_TI12,TIM_ICPolarity_Rising,TIM_ICPolarity_Rising);
