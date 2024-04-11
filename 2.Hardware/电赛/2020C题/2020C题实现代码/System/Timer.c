@@ -1,6 +1,6 @@
 #include "stm32f10x.h"                  // Device header
 
-void Timer6_Init(void)//电机定时测速
+void Timer6_Init(void)//电机定时测速,debug时可以使用该定时器完成
 {
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6, ENABLE);
 	
@@ -38,7 +38,7 @@ void Timer7_Init(void)//定时中断用PID处理数据
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
 	TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	TIM_TimeBaseInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
-	TIM_TimeBaseInitStructure.TIM_Period = 10000 - 1;
+	TIM_TimeBaseInitStructure.TIM_Period = 500 - 1;
 	TIM_TimeBaseInitStructure.TIM_Prescaler = 7200 - 1;
 	TIM_TimeBaseInitStructure.TIM_RepetitionCounter = 0;
 	TIM_TimeBaseInit(TIM7, &TIM_TimeBaseInitStructure);

@@ -18,7 +18,7 @@ void Infrared_init(void)
 	GPIO_Init(GPIOA,&GPIO_InitStruct);
 	GPIO_Init(GPIOC,&GPIO_InitStruct);
 
-
+	Car_init();
 }
 
 void Track(void)
@@ -28,55 +28,56 @@ void Track(void)
 		   GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_8)==0&&
 		   GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_9)==0)
 		{
-			Go_Ahead();
+			TIM_Cmd(TIM7, ENABLE);
 		}
 		else if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_8)==1&&
 				GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_9)==1&&
 				GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_8)==1&&
 				GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_9)==1)
-		{
+		{	TIM_Cmd(TIM7, DISABLE);
 			Car_Stop();
+		
 		}
 		else if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_8)==0&&
 				GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_9)==0&&
 				GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_8)==1&&
 				GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_9)==1)
-		{
+		{	TIM_Cmd(TIM7, DISABLE);
 			Slef_Right();
 		}
 		else if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_8)==0&&
 				GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_9)==0&&
 				GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_8)==1&&
 				GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_9)==0)
-		{
+		{	TIM_Cmd(TIM7, DISABLE);
 			Turn_Right();
 		}
 		else if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_8)==0&&
 				GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_9)==0&&
 				GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_8)==0&&
 				GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_9)==1)
-		{
+		{	TIM_Cmd(TIM7, DISABLE);
 			Turn_Right();
 		}
 		else if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_8)==1&&
 				GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_9)==1&&
 				GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_8)==0&&
 				GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_9)==0)
-		{
+		{	TIM_Cmd(TIM7, DISABLE);
 			Slef_Left();
 		}
 		else if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_8)==0&&
 				GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_9)==1&&
 				GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_8)==0&&
 				GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_9)==0)
-		{
+		{	TIM_Cmd(TIM7, DISABLE);
 			Turn_Left();
 		}
 		else if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_8)==1&&
 				GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_9)==0&&
 				GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_8)==0&&
 				GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_9)==0)
-		{
+		{	TIM_Cmd(TIM7, DISABLE);
 			Turn_Left();
 		}
 }
